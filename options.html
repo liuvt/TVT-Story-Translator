@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>TVT Story Translator - Cài đặt</title><link rel="stylesheet" href="ui.css"/></head>
+<body class="options-body"><div class="app">
+  <div class="app-header"><div class="logo">T<span>✦</span></div><div class="app-name"><h1>Cài đặt TVT Story Translator</h1><small>API • Phong cách • Từ điển truyện • TTS</small></div></div>
+  <p class="lead">Các quy tắc bên dưới được gửi cùng mỗi lần xử lý. Extension không tự đọc bộ nhớ ChatGPT của bạn.</p>
+  <section class="card"><h2>1. OpenAI API</h2><p>Cần khóa API từ <a href="https://platform.openai.com/api-keys" target="_blank" rel="noreferrer">OpenAI Platform</a>. Gói ChatGPT Plus/Pro không bao gồm chi phí gọi API.</p>
+    <label for="apiKey">API key</label><input type="password" id="apiKey" placeholder="sk-..." autocomplete="off"/>
+    <label class="checkline"><input type="checkbox" id="rememberKey"/> Lưu API key trên máy để dùng lại sau khi khởi động Chrome</label>
+    <p>Không tích nếu dùng máy chung. Khóa lưu trên máy trong Chrome Extension Storage không được mã hóa riêng; không chia sẻ ZIP kèm API key.</p>
+    <div class="grid-settings"><div><label for="model">Model</label><input type="text" id="model" list="modelOptions" placeholder="gpt-6-luna"/><datalist id="modelOptions"><option value="gpt-6-luna"/><option value="gpt-6-sol"/><option value="gpt-6.1-sol"/></datalist></div>
+    <div><label for="chunkSize">Ký tự nguồn / mỗi lượt API</label><select id="chunkSize"><option value="2000">2.000 • chia nhỏ</option><option value="3600">3.600 • đề xuất</option><option value="5000">5.000 • dài</option></select></div></div>
+    <label for="maxOutputTokens">Giới hạn token đầu ra / lượt</label><input type="number" id="maxOutputTokens" min="2500" max="30000" step="500"/>
+  </section>
+  <section class="card"><h2>2. Bộ quy tắc phong cách</h2><p>Chọn từng preset để xem hoặc chỉnh trực tiếp lời nhắc sẽ gửi đến AI. Tất cả đều yêu cầu giữ đầy đủ nội dung nguồn.</p>
+    <label for="editProfile">Preset cần chỉnh sửa</label><select id="editProfile"><option value="faithful">Chuẩn TTS • không lược bỏ</option><option value="docsi">Độc Sĩ / Diêm Vương Sống</option><option value="canon">Cao Dương • hiệu đính ASR</option><option value="custom">Phong cách tùy chỉnh</option></select>
+    <label for="profileGuide">Nội dung quy tắc</label><textarea id="profileGuide" class="large-textarea" spellcheck="false" placeholder="Nhập phong cách riêng..."></textarea>
+    <div class="actions"><button id="resetProfileBtn" class="button ghost">↶ Khôi phục preset đang chọn</button></div>
+  </section>
+  <section class="card"><h2>3. Từ điển tên riêng / chống lỗi ASR</h2><p>Mỗi dòng có dạng <code>Sai =&gt; Đúng</code>. Chỉ bật khi đúng tác phẩm (ví dụ truyện Cao Dương). Bạn có thể chỉnh, xóa hoặc thêm tên riêng.</p>
+    <label for="glossary">Danh sách chuẩn hóa</label><textarea id="glossary" class="glossary-textarea" spellcheck="false"></textarea>
+  </section>
+  <div class="toolbar"><button id="saveBtn" class="button primary">✓ Lưu cài đặt</button><button id="resetBtn" class="button ghost">Khôi phục preset mặc định</button><span class="status" id="optionsStatus" role="status"></span></div>
+</div><script type="module" src="options.js"></script></body></html>
