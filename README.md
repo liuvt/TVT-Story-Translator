@@ -1,5 +1,7 @@
 # TVT Story Translator – Extension dịch truyện & chuẩn TTS
 
+#https://www.novel543.com/0217527893/8096_1_2.html
+
 **Chrome Extension Manifest V3**, sử dụng side panel, chạy trên hầu hết trang web thông thường và xử lý bằng OpenAI Responses API.
 
 ## Tính năng
